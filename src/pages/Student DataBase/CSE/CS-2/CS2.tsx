@@ -14,7 +14,7 @@ interface Contributor {
   activeProjects: string;
 }
 
-export function CS3() {
+export function CS2() {
   const [contributors, setContributors] = useState<Contributor[]>([]);
   const [editingContributor, setEditingContributor] = useState<Contributor | null>(null);
   const [showModal, setShowModal] = useState(false);
@@ -29,22 +29,22 @@ export function CS3() {
   });
 
   useEffect(() => {
-    const contributorsRef = ref(db, 'StudentDatabase/CSE/CS3');
+    const contributorsRef = ref(db, 'StudentDatabase/CSE/CS2');
     const unsubscribe = onValue(contributorsRef, (snapshot) => {
       const data = snapshot.val();
       const contributorsList = data ? Object.keys(data).map(key => ({
         id: key,
         ...data[key]
-      })).sort((a, b) => a.rollno.localeCompare(b.rollno)) : []; // Add sort here
+      })) : [];
       setContributors(contributorsList);
     });
-  
+
     return () => unsubscribe();
   }, []);
 
   const handleAdd = async () => {
     try {
-      await set(ref(db, `StudentDatabase/CSE/CS3/${Date.now()}`), {
+      await set(ref(db, `StudentDatabase/CSE/CS2/${Date.now()}`), {
         ...newContributor,
         points: Number(newContributor.points)
       });
@@ -69,7 +69,7 @@ export function CS3() {
     try {
       const { id, ...contributorData } = editingContributor;
       
-      await set(ref(db, `StudentDatabase/CSE/CS3/${id}`), {
+      await set(ref(db, `StudentDatabase/CSE/CS2/${id}`), {
         ...contributorData,
         points: Number(contributorData.points)
       });
@@ -84,7 +84,7 @@ export function CS3() {
   const handleDelete = async (id: string) => {
     if (window.confirm('Are you sure you want to delete this contributor?')) {
       try {
-        await remove(ref(db, `StudentDatabase/CSE/CS3/${id}`));
+        await remove(ref(db, `StudentDatabase/CSE/CS2/${id}`));
       } catch (error) {
         console.error('Error deleting contributor:', error);
       }
@@ -95,7 +95,7 @@ export function CS3() {
     <div className="min-h-screen bg-gray-900 p-8">
       <div className="max-w-7xl mx-auto">
         <div className="flex justify-between items-center mb-8">
-          <h1 className="text-3xl font-bold text-white">CS3 Contributors</h1>
+          <h1 className="text-3xl font-bold text-white">CS2 Contributors</h1>
           <button
             onClick={() => {
               setEditingContributor(null);

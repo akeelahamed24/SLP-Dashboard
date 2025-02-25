@@ -12,6 +12,8 @@ import { StudentPage } from './pages/Student DataBase/StudentPage';
 import { AdsPage } from './pages/Student DataBase/AD/AdsPage';
 import { CsePage } from './pages/Student DataBase/CSE/CsePage';
 import { CS1 } from './pages/Student DataBase/CSE/CS-1/CS1';
+import { CS2 } from './pages/Student DataBase/CSE/CS-2/CS2';
+import { CS3 } from './pages/Student DataBase/CSE/CS-3/CS3';
 
 
 export default function App() {
@@ -108,6 +110,8 @@ export default function App() {
         <Route path="/ads" element={<AdsPage />} />
         <Route path="/cse" element={<CsePage />} />
         <Route path="/cse/1" element={<CS1 />} />
+        <Route path="/cse/2" element={<CS2 />} />
+        <Route path="/cse/3" element={<CS3 />} />
         </Routes>
     </BrowserRouter>
   );

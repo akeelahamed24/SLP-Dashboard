@@ -29,7 +29,7 @@ export function CS1() {
   });
 
   useEffect(() => {
-    const contributorsRef = ref(db, 'StudentDatabase/CS1');
+    const contributorsRef = ref(db, 'StudentDatabase/CSE/CS1');
     const unsubscribe = onValue(contributorsRef, (snapshot) => {
       const data = snapshot.val();
       const contributorsList = data ? Object.keys(data).map(key => ({
@@ -44,7 +44,7 @@ export function CS1() {
 
   const handleAdd = async () => {
     try {
-      await set(ref(db, `StudentDatabase/CS1/${Date.now()}`), {
+      await set(ref(db, `StudentDatabase/CSE/CS1/${Date.now()}`), {
         ...newContributor,
         points: Number(newContributor.points)
       });
@@ -67,10 +67,9 @@ export function CS1() {
     if (!editingContributor) return;
     
     try {
-      // Create a copy of the contributor without the id property
       const { id, ...contributorData } = editingContributor;
       
-      await set(ref(db, `StudentDatabase/CS1/${id}`), {
+      await set(ref(db, `StudentDatabase/CSE/CS1/${id}`), {
         ...contributorData,
         points: Number(contributorData.points)
       });
@@ -85,7 +84,7 @@ export function CS1() {
   const handleDelete = async (id: string) => {
     if (window.confirm('Are you sure you want to delete this contributor?')) {
       try {
-        await remove(ref(db, `StudentDatabase/CS1/${id}`));
+        await remove(ref(db, `StudentDatabase/CSE/CS1/${id}`));
       } catch (error) {
         console.error('Error deleting contributor:', error);
       }
