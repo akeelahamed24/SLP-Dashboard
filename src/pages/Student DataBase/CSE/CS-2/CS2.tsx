@@ -35,10 +35,10 @@ export function CS2() {
       const contributorsList = data ? Object.keys(data).map(key => ({
         id: key,
         ...data[key]
-      })) : [];
+      })).sort((a, b) => a.rollno.localeCompare(b.rollno)) : []; // Add sort here
       setContributors(contributorsList);
     });
-
+  
     return () => unsubscribe();
   }, []);
 

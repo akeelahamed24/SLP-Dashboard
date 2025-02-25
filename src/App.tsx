@@ -14,7 +14,7 @@ import { CsePage } from './pages/Student DataBase/CSE/CsePage';
 import { CS1 } from './pages/Student DataBase/CSE/CS-1/CS1';
 import { CS2 } from './pages/Student DataBase/CSE/CS-2/CS2';
 import { CS3 } from './pages/Student DataBase/CSE/CS-3/CS3';
-
+import {CS4} from './pages/Student DataBase/CSE/CS-4/CS4';
 
 export default function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -112,6 +112,7 @@ export default function App() {
         <Route path="/cse/1" element={<CS1 />} />
         <Route path="/cse/2" element={<CS2 />} />
         <Route path="/cse/3" element={<CS3 />} />
+        <Route path="/cse/4" element={<CS4 />} />
         </Routes>
     </BrowserRouter>
   );
