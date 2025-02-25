@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Mail, Lock, KeyRound } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 interface AuthFormProps {
   isLogin: boolean;
@@ -17,6 +18,7 @@ export function AuthForm({ isLogin, setIsLogin, onSubmit, error, message }: Auth
     e.preventDefault();
     onSubmit(email, isLogin ? password : undefined);
   };
+  const navigate = useNavigate();
 
   return (
     <div className="w-full max-w-md">
@@ -90,11 +92,12 @@ export function AuthForm({ isLogin, setIsLogin, onSubmit, error, message }: Auth
 
         <div className="mt-6 text-center">
           <button
-            onClick={() => setIsLogin(!isLogin)}
-            className="text-emerald-400 hover:text-emerald-300 text-sm font-medium"
-          >
-            {isLogin ? 'Forgot password?' : 'Back to login'}
-          </button>
+  onClick={() => navigate('/forgot-password')}
+  className="text-emerald-400 hover:text-emerald-300 text-sm font-medium"
+>
+  Forgot password?
+</button>
+
         </div>
       </div>
     </div>

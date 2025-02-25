@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { onAuthStateChanged, sendPasswordResetEmail, signInWithEmailAndPassword } from 'firebase/auth';
 import { auth } from './firebase';
+import { ForgotPassword } from './pages/ForgotPassword';
 import { Dashboard } from './pages/Dashboard';
 import { AuthForm } from './pages/AuthForm';
 import { ProjectPage } from './pages/ProjectPage';
@@ -79,7 +80,8 @@ export default function App() {
             )
           }
         />
-        
+        <Route path="/forgot-password" element={<ForgotPassword />} />
+
         <Route
           path="/dashboard"
           element={
