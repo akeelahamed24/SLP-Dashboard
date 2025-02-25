@@ -11,7 +11,7 @@ import { EditProject } from './Components/EditProject';
 import { StudentPage } from './pages/Student DataBase/StudentPage';
 import { AdsPage } from './pages/Student DataBase/AD/AdsPage';
 import { CsePage } from './pages/Student DataBase/CSE/CsePage';
-
+import { CS1 } from './pages/Student DataBase/CSE/CS-1/CS1';
 
 
 export default function App() {
@@ -107,7 +107,8 @@ export default function App() {
         <Route path="/students" element={<StudentPage />} />
         <Route path="/ads" element={<AdsPage />} />
         <Route path="/cse" element={<CsePage />} />
-      </Routes>
+        <Route path="/cse/1" element={<CS1 />} />
+        </Routes>
     </BrowserRouter>
   );
 }
